@@ -6,5 +6,5 @@ df = pd.read_csv(
 )
 df.head()
 
-fig = px.histogram(df, x="Country")
+fig = px.histogram(df, x="Country").update_xaxes(categoryorder="total descending")
 fig.show()
