@@ -18,11 +18,16 @@ values=df['Status'].value_counts()
 fig = go.Figure(data=go.Scattergeo(
     lon = df['Longitude'],
     lat = df['Latitude'],
-    mode = 'markers'
+    mode = 'markers',
+    showlegend=False,
+    marker=dict(color="crimson", size=4, opacity=0.8)
 ))
 
-fig.update_layout(
-    title = 'Volcanos',
-    geo_scope='world'
+fig.update_geos(
+    projection_type="orthographic",
+    landcolor="white",
+    oceancolor="MidnightBlue",
+    showocean=True,
+    lakecolor="LightBlue"
 )
 fig.show()
