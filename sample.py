@@ -10,6 +10,8 @@ df.head()
 
 labels=df.Status.unique()
 values=df['Status'].value_counts()
-# fig = px.histogram(df, x="Country").update_xaxes(categoryorder="total descending")
-fig = go.Figure(data=[go.Pie(labels=labels, values=values)])
+
+# fig = go.Figure(data=[go.Pie(labels=labels, values=values)])
+
+fig = px.histogram(df, x="Country", color="Status").update_xaxes(categoryorder="total descending")
 fig.show()
