@@ -13,5 +13,16 @@ values=df['Status'].value_counts()
 
 # fig = go.Figure(data=[go.Pie(labels=labels, values=values)])
 
-fig = px.histogram(df, x="Country", color="Status").update_xaxes(categoryorder="total descending")
+# fig = px.histogram(df, x="Country", color="Status").update_xaxes(categoryorder="total descending")
+# fig = px.bar(df, x='Volcano Name', y='Elev', color='Type', height=400)
+fig = go.Figure(data=go.Scattergeo(
+    lon = df['Longitude'],
+    lat = df['Latitude'],
+    mode = 'markers'
+))
+
+fig.update_layout(
+    title = 'Volcanos',
+    geo_scope='world'
+)
 fig.show()
