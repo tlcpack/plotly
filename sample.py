@@ -18,23 +18,23 @@ values=df['Status'].value_counts()
 # fig = px.bar(df, x='Volcano Name', y='Elev', color='Type', height=400)
 
 # Making a globe
-# fig = go.Figure(data=go.Scattergeo(
-#     lon = df['Longitude'],
-#     lat = df['Latitude'],
-#     mode = 'markers',
-#     showlegend=False,
-#     marker=dict(color="crimson", size=4, opacity=0.8)
-# ))
+fig = go.Figure(data=go.Scattergeo(
+    lon = df['Longitude'],
+    lat = df['Latitude'],
+    mode = 'markers',
+    showlegend=False,
+    marker=dict(color="crimson", size=4, opacity=0.8)
+))
 
-# fig.update_geos(
-#     projection_type="orthographic",
-#     landcolor="white",
-#     oceancolor="MidnightBlue",
-#     showocean=True,
-#     lakecolor="LightBlue"
-# )
-fig = go.Figure(data=[go.Surface(z=df_v.values)])
+fig.update_geos(
+    projection_type="orthographic",
+    landcolor="white",
+    oceancolor="MidnightBlue",
+    showocean=True,
+    lakecolor="LightBlue"
+)
+# fig = go.Figure(data=[go.Surface(z=df_v.values)])
 
-fig.update_layout(title='Volcano', autosize=False,width=500, height=500, margin=dict(l=65, r=50, b=65, t=90))
+# fig.update_layout(title='Volcano', autosize=False,width=500, height=500, margin=dict(l=65, r=50, b=65, t=90))
 
 fig.show()
